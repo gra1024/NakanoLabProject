@@ -78,7 +78,7 @@ function draw(json,success) {
 }
 
 function showLibraryUsage(json, success){
-    if(success == 1){
+    if(success == 1 && json.current >= 0){
         sen1.textContent = "現在の図書館使用人数：" + json['current'] + "人" ;
         document.querySelector('#libraryUsage').appendChild(sen1);
         
@@ -109,7 +109,7 @@ window.onload = function() {
     setInterval(function() {
         $.ajax({ // json読み込み開始
             type: 'GET',
-            url: 'https://yueni1024.github.io/data/json/libraryUsage.json',
+            url: 'https://raw.githubusercontent.com/gra1024/NakanoLabProject/master/json/libraryUsage.json',
             dataType: 'json'
         })
         .then(
